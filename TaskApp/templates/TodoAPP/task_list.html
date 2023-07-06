@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mb-4">TODO List</h1>
+
+    <a href="{% url 'task_create' %}" class="btn btn-primary mb-4">Add Task</a>
+
+    <ul class="list-group">
+      {% for task in tasks %}
+        <li class="list-group-item">
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+          <p>Completed: {{ task.completed }}</p>
+          <p>
+            <a href="{% url 'task_update' task.id %}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="{% url 'task_delete' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+          </p>
+        </li>
+      {% empty %}
+        <li class="list-group-item">No tasks available.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title text-center">Create Task</h1>
+
+            <form method="post">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" name="description" class="form-control" required></textarea>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Create</button>
+              </div>
+            </form>
+
+            <a href="{% url 'task_list' %}" class="d-block mt-3 text-center">Back to List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

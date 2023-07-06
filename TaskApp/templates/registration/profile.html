@@ -1,0 +1,16 @@
+<!-- templates/registration/profile.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Profile</h1>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">User Profile</h5>
+        <p class="card-text">Username: {{ user.username }}</p>
+        <p class="card-text">Email: {{ user.email }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
